@@ -32,14 +32,22 @@ const handler = async (req, res) => {
 
         console.log('Taking screenshot of URL:', deploymentUrl);
 
-        // Launch browser with chrome-aws-lambda
-        browser = await puppeteer.launch({
-            args: [...chromium.args, '--hide-scrollbars', '--disable-web-security'],
+        // Configure browser options based on environment
+        const options = {
+            args: chromium.args,
             defaultViewport: chromium.defaultViewport,
             executablePath: await chromium.executablePath,
-            headless: true,
-            ignoreHTTPSErrors: true
-        });
+            headless: chromium.headless,
+            ignoreHTTPSErrors: true,
+        };
+
+        // Add specific flags for Vercel environment
+        options.args.push('--disable-gpu');
+        options.args.push('--no-sandbox');
+        options.args.push('--disable-setuid-sandbox');
+        
+        // Launch browser with configured options
+        browser = await puppeteer.launch(options);
         
         // Create a new page
         const page = await browser.newPage();
