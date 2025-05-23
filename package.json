@@ -1,15 +1,11 @@
 {
-  "name": "pinterest-infographic-screenshot",
+  "name": "pinterest-infographic",
   "version": "1.0.0",
-  "description": "A web app that displays an infographic about Pinterest marketing and allows users to take screenshots",
+  "description": "A web app that displays an infographic about Pinterest marketing",
   "main": "index.js",
   "scripts": {
     "dev": "vercel dev",
     "deploy": "vercel deploy --prod"
-  },
-  "dependencies": {
-    "chrome-aws-lambda": "10.1.0",
-    "puppeteer-core": "10.1.0"
   },
   "devDependencies": {
     "vercel": "^32.5.0"

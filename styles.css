@@ -175,40 +175,15 @@ h1 {
     font-size: 0.9em;
 }
 
-/* Screenshot button */
+/* Remove these screenshot button styles */
 #screenshot-btn {
-    display: block;
-    margin: 40px auto 0;
-    padding: 15px 30px;
-    background: linear-gradient(135deg, #2c7873 0%, #1e5854 100%);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.1em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(44, 120, 115, 0.3);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    display: none;
 }
 
-#screenshot-btn:hover {
-    background: linear-gradient(135deg, #1e5854 0%, #2c7873 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(44, 120, 115, 0.4);
-}
-
-#screenshot-btn:active {
-    transform: translateY(1px);
-    box-shadow: 0 4px 10px rgba(44, 120, 115, 0.3);
-}
-
+#screenshot-btn:hover,
+#screenshot-btn:active,
 #screenshot-btn:disabled {
-    background: linear-gradient(135deg, #85adaa 0%, #a0c4c0 100%);
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: 0 4px 10px rgba(44, 120, 115, 0.2);
+    display: none;
 }
 
 /* Hover effects */
@@ -353,12 +328,6 @@ h1 {
         height: 16px;
         transform: translate(-50%, -50%);
     }
-    
-    #screenshot-btn {
-        padding: 12px 24px;
-        font-size: 1em;
-        margin-top: 30px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -417,11 +386,5 @@ h1 {
         top: 30px;
         width: 12px;
         height: 12px;
-    }
-    
-    #screenshot-btn {
-        padding: 10px 20px;
-        font-size: 0.9em;
-        margin-top: 25px;
     }
 } 

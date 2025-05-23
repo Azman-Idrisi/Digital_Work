@@ -1,19 +1,19 @@
-# Pinterest Infographic Screenshot App
+# Pinterest Marketing Infographic
 
-This is a web application that displays an infographic about Pinterest marketing and allows users to take screenshots of it.
+A web application that displays an infographic about Pinterest marketing with beautiful animations.
 
 ## Features
 
 - Responsive infographic with a timeline layout
-- "Take Screenshot" button to capture the infographic
-- Backend API endpoint for capturing screenshots
-- Automatic download of the captured screenshot
+- Smooth scroll animations using GSAP
+- Modern and clean design
+- Mobile-friendly interface
 
 ## Tech Stack
 
-- Frontend: HTML, CSS, and vanilla JavaScript
-- Backend: Node.js with Express
-- Screenshot functionality: Puppeteer
+- HTML5 and CSS3
+- GSAP for animations
+- Vercel for deployment
 
 ## Setup Instructions
 
@@ -24,28 +24,17 @@ This is a web application that displays an infographic about Pinterest marketing
 npm install
 ```
 
-3. Start the server:
-
-```bash
-npm start
-```
-
-4. Open your browser and navigate to `http://localhost:3000`
-
-## Development Mode
-
-To run the server in development mode with automatic restarts:
+3. For development:
 
 ```bash
 npm run dev
 ```
 
-## How It Works
+4. For production deployment:
 
-1. The frontend displays an infographic about Pinterest marketing
-2. When the user clicks the "Take Screenshot" button, a request is sent to the backend
-3. The backend uses Puppeteer to navigate to the page and take a screenshot
-4. The screenshot is sent back to the frontend and automatically downloaded
+```bash
+npm run deploy
+```
 
 ## Requirements
 
