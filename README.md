@@ -27,9 +27,6 @@ A web application that displays an infographic about Pinterest marketing with be
 
 - HTML5 and CSS3 with modern styling features
 - JavaScript ES6+ for interactive features
-- GSAP for smooth animations
-- Express.js for backend server
-- Puppeteer for high-quality screenshots
 
 ## Setup Instructions
 
