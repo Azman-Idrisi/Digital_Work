@@ -5,114 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harnessing Infographics for Effective Pinterest Marketing</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
-    <div class="container" id="infographic">
-        <h1>Harnessing Infographics for Effective Pinterest Marketing</h1>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="number-container">
-                    <div class="number-box">
-                        <div class="number">1</div>
+    <div class="app-container">
+        <!-- Left Sidebar Controls -->
+        <div class="sidebar">
+            <h2>Infographic Controls</h2>
+            
+            <!-- Theme Controls -->
+            <div class="control-section">
+                <h3>Theme</h3>
+                <div class="color-controls">
+                    <div>
+                        <label for="primaryColor">Primary Color:</label>
+                        <input type="color" id="primaryColor" value="#006169">
+                    </div>
+                    <div>
+                        <label for="secondaryColor">Secondary Color:</label>
+                        <input type="color" id="secondaryColor" value="#d1e6e8">
                     </div>
                 </div>
-                <div class="connector-line"></div>
-                <div class="content">
-                    <h3>Enhancing Visual Appeal</h3>
-                    <p>Infographics leverage visually appealing designs, which can capture users' attention quickly on Pinterest's image-centric platform. This visual aspect can lead to increased engagement and higher pin rates.</p>
-                </div>
-                <div class="timeline-connector"></div>
             </div>
 
-            <div class="timeline-item">
-                <div class="number-container">
-                    <div class="number-box">
-                        <div class="number">2</div>
-                    </div>
-                </div>
-                <div class="connector-line"></div>
-                <div class="content">
-                    <h3>Simplifying Complex Information</h3>
-                    <p>Infographics simplify complex data and concepts into digestible visual formats. This is particularly useful for e-commerce brands or service providers looking to explain products or services quickly.</p>
-                </div>
-                <div class="timeline-connector"></div>
+            <!-- Title Controls -->
+            <div class="control-section">
+                <h3>Title</h3>
+                <input type="text" id="titleInput" class="full-width" value="Harnessing Infographics for Effective Pinterest Marketing" placeholder="Enter infographic title">
             </div>
 
-            <div class="timeline-item">
-                <div class="number-container">
-                    <div class="number-box">
-                        <div class="number">3</div>
-                    </div>
+            <!-- Points Controls -->
+            <div class="control-section">
+                <h3>Timeline Points</h3>
+                <div id="pointsContainer">
+                    <!-- Points will be dynamically added here -->
                 </div>
-                <div class="connector-line"></div>
-                <div class="content">
-                    <h3>Boosting Brand Awareness</h3>
-                    <p>Consistent use of infographics helps in building brand identity. By using specific colors, fonts, and styles, brands can create a distinct visual language that resonates with users and enhances recall.</p>
-                </div>
-                <div class="timeline-connector"></div>
+                <button id="addPointBtn" class="primary-button">+ Add New Point</button>
             </div>
 
-            <div class="timeline-item">
-                <div class="number-container">
-                    <div class="number-box">
-                        <div class="number">4</div>
-                    </div>
-                </div>
-                <div class="connector-line"></div>
-                <div class="content">
-                    <h3>Encouraging Shares and Saves</h3>
-                    <p>Infographics are highly shareable content; they encourage users to save, pin, or share them due to their informative nature. This can lead to organic reach and visibility on Pinterest.</p>
-                </div>
-                <div class="timeline-connector"></div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="number-container">
-                    <div class="number-box">
-                        <div class="number">5</div>
-                    </div>
-                </div>
-                <div class="connector-line"></div>
-                <div class="content">
-                    <h3>Driving Traffic to Websites</h3>
-                    <p>Infographics can include call-to-actions (CTAs) linking back to your website or landing page, facilitating the conversion of Pinterest users into website visitors, thus driving traffic effectively.</p>
-                </div>
-                <div class="timeline-connector"></div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="number-container">
-                    <div class="number-box">
-                        <div class="number">6</div>
-                    </div>
-                </div>
-                <div class="connector-line"></div>
-                <div class="content">
-                    <h3>Leveraging SEO Benefits</h3>
-                    <p>When properly tagged with keywords and descriptions, infographics can enhance SEO on Pinterest. This can improve discoverability, making it easier for users interested in specific topics to find your pins.</p>
-                </div>
-                <div class="timeline-connector"></div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="number-container">
-                    <div class="number-box">
-                        <div class="number">7</div>
-                    </div>
-                </div>
-                <div class="connector-line"></div>
-                <div class="content">
-                    <h3>Creating Educational Content</h3>
-                    <p>Infographics can serve as educational tools or tutorials, providing value to your audience. This type of informative content can establish authority in your niche and attract a loyal following.</p>
-                </div>
-                <div class="timeline-connector"></div>
+            <!-- Screenshot Controls -->
+            <div class="control-section">
+                <h3>Export</h3>
+                <button id="screenshot-btn" class="primary-button">
+                    <span>📸 Take Screenshot</span>
+                </button>
             </div>
         </div>
-        
-        <button id="screenshot-btn">Take Screenshot</button>
+
+        <!-- Right Content Area -->
+        <div class="main-content">
+            <div class="container" id="infographic">
+                <h1>Harnessing Infographics for Effective Pinterest Marketing</h1>
+                
+                <div class="timeline">
+                    <!-- Timeline items will be dynamically generated -->
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Screenshot Modal -->
+    <div id="screenshot-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your Screenshot</h2>
+            <div class="screenshot-container">
+                <img id="screenshot-image" src="" alt="Infographic Screenshot">
+            </div>
+            <button id="downloadBtn">Download Screenshot</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
