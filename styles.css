@@ -125,7 +125,6 @@ h1 {
     justify-content: center;
     position: relative;
     z-index: 2;
-    transition: transform 0.3s ease;
     box-shadow: 0 4px 15px rgba(44, 120, 115, 0.2);
     border: 1px solid rgba(44, 120, 115, 0.3);
 }
@@ -156,7 +155,6 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-left: 4px solid #2c7873;
     text-align: left;
 }
@@ -187,39 +185,15 @@ h1 {
     font-size: 1.1em;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
     box-shadow: 0 8px 20px rgba(44, 120, 115, 0.3);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-#screenshot-btn:hover {
-    background: linear-gradient(135deg, #2c7873 0%, #016473 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(44, 120, 115, 0.4);
-}
-
-#screenshot-btn:active {
-    transform: translateY(1px);
-    box-shadow: 0 4px 10px rgba(44, 120, 115, 0.3);
-}
-
 #screenshot-btn:disabled {
     background: linear-gradient(135deg, #85adaa 0%, #a0c4c0 100%);
     cursor: not-allowed;
-    transform: none;
     box-shadow: 0 4px 10px rgba(44, 120, 115, 0.2);
-}
-
-/* Hover effects */
-.number-box:hover {
-    transform: scale(1.05);
-    background: rgba(209, 231, 221, 1);
-}
-
-.content:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* Tablet styles */

@@ -1,10 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     const screenshotBtn = document.getElementById('screenshot-btn');
+    const SCREENSHOT_SERVER = 'http://localhost:3000';
     
-    // Get the API URL based on environment
-    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-        ? 'http://localhost:3000/api/screenshot'
-        : '/api/screenshot';
+    // Check if screenshot server is running
+    async function checkServer() {
+        try {
+            const response = await fetch(`${SCREENSHOT_SERVER}/health`);
+            const data = await response.json();
+            return data.status === 'Server is running';
+        } catch (error) {
+            console.error('Screenshot server not available:', error);
+            return false;
+        }
+    }
     
     screenshotBtn.addEventListener('click', async () => {
         try {
@@ -12,29 +20,26 @@ document.addEventListener('DOMContentLoaded', () => {
             screenshotBtn.textContent = 'Taking screenshot...';
             screenshotBtn.disabled = true;
             
-            console.log('Taking screenshot of:', window.location.href);
+            // Check if server is running
+            const isServerRunning = await checkServer();
+            if (!isServerRunning) {
+                throw new Error('Screenshot server is not running. Please start the server with "npm start"');
+            }
             
-            // Call the backend endpoint to take a screenshot
-            const response = await fetch(API_URL, {
+            // Call the backend endpoint
+            const response = await fetch(`${SCREENSHOT_SERVER}/api/screenshot`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'image/png'
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ 
+                body: JSON.stringify({
                     url: window.location.href
                 })
             });
             
-            // Check if the response is JSON (error) or blob (screenshot)
-            const contentType = response.headers.get('content-type');
-            if (contentType && contentType.includes('application/json')) {
-                const errorData = await response.json();
-                throw new Error(errorData.details || errorData.error || 'Failed to take screenshot');
-            }
-            
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Failed to take screenshot');
             }
             
             // Get the screenshot as blob
